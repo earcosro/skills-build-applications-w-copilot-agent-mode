@@ -18,6 +18,20 @@ class LeaderboardViewSet(viewsets.ModelViewSet):
     queryset = Leaderboard.objects.all()
     serializer_class = LeaderboardSerializer
 
+
 class WorkoutViewSet(viewsets.ModelViewSet):
     queryset = Workout.objects.all()
     serializer_class = WorkoutSerializer
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'users': '/api/users/',
+        'teams': '/api/teams/',
+        'activities': '/api/activities/',
+        'leaderboard': '/api/leaderboard/',
+        'workouts': '/api/workouts/',
+    })
