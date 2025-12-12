@@ -24,9 +24,9 @@ from rest_framework.response import Response
 
 CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
 if CODESPACE_NAME:
-    BASE_URL = f"https://{CODESPACE_NAME}-80003.app.github.dev"
+    BASE_URL = f"https://{CODESPACE_NAME}-8000.app.github.dev"
 else:
-    BASE_URL = "http://localhost:80003"
+    BASE_URL = "http://localhost:8000"
 
 @api_view(['GET'])
 def api_root(request, format=None):
